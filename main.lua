@@ -6,20 +6,21 @@ function love.load()
 
 	dir = "memes"
 	files = love.filesystem.getDirectoryItems(dir)
-	image = love.graphics.newImage("/" .. dir .. "/" .. files[love.math.random(#files)])
-	image = love.graphics.newImage("/testing/memes/2.jpg")
+	--image = love.graphics.newImage("/" .. dir .. "/" .. files[love.math.random(#files)])
+	image = love.graphics.newImage("/memes/test.jpg")
 end
 
 function love.update(dt)
-	image = love.graphics.newImage("/" .. dir .. "/" .. files[love.math.random(#files)])
+	--image = love.graphics.newImage("/" .. dir .. "/" .. files[love.math.random(#files)])
 	love.timer.sleep(2)
 
 	img_w = image:getWidth()
 	img_h = image:getHeight()
 	sx = w / img_w
 	sy = h / img_h
-	ratio_h = sy * img_h
-	ratio_w = sy * img_w
+	ratio_h = math.floor(sy * img_h)
+	ratio_w = math.floor(sy * img_w)
+	print(sx, sy)
 end
 
 function love.draw()
